@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>제목1입니다.</h1>
+    <p class="classp">p1입니다.</p>
+    <p class="classp">p2입니다.</p>
+    <h1 id="title">제목2입니다.</h1>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+    <script>
+       //요소의 단수 선택
+       
+       let h1 = document.getElementById("title");
+       //요소의 복수 선택(유사 배열로 반환)
+       let p = document.getElementsByClassName("classp");
+       let h1s = document.getElementsByTagName("h1");
+       //요소의 단수 선택
+       let h1query = document.querySelector("#title");
+       //요소의 복수 선택
+       let pquery = document.querySelectorAll("p");
+       console.log(h1query);
+       console.log(pquery);
+       pquery[0].innerHTML = "dom요소 선택하기";
+       h1.innerHTML = "하하하하하하";
+
+       let lists = document.querySelector("li");
+       console.log(lists);
+
+    </script>
+</body>
+</html>

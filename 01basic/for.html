@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //for(초기값; 조건; 증감){   반복실행   }
+        //1~10까지 출력
+        //1~100까지 숫자중 5의배수만 더한값을 출력해
+        //1~100
+        let sum = 0;
+        for(let i=1; i<=100; i++){
+            //조건
+            if(i % 10 == 0){
+                sum = sum +i;
+            }
+           
+        }
+        console.log("1~100 숫자 중 5의 배수의 합 " + sum);
+
+        //1~10까지 숫자중 짝수만 출력
+        for(let i=1; i<=10; i++){
+            if(i % 2 == 0){
+                console.log(i);
+            }
+        } 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

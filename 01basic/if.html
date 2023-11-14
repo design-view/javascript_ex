@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let x = prompt("숫자를 입력하세요");
+        //NaN 동등, 일치로 비교할수 없음
+        //isNaN() ---> 값이 NaN true, false
+        if(isNaN(Number(x))){
+            x = prompt("다시 입력하세요");
+        }
+        let y = prompt("숫자를 입력하세요");
+        if(isNaN(Number(y))){
+            x = prompt("다시 입력하세요");
+        }
+        if(x==y) {
+            console.log("같습니다.");
+        }
+        if(x>y){
+            console.log("x가 큽니다.");
+        }
+        if(x<y){
+            console.log("y가 큽니다.")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

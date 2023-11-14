@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let year = Number(prompt("년도를 입력하세요"));
+        let isyear;
+        // 4로 나누어떨어지는 해는 윤년
+        if(year % 4 == 0){
+            //이중에서 100으로 나누어 떨어지면 평년
+            if(year % 100 == 0){
+                //그중에서 400으로 나누어 떨어지면 윤년
+                // if(year % 400 == 0 ){
+                //         isyear = "윤년";
+                // }else {
+                //         isyear = "평년";
+                // }
+                isyear = year % 400 == 0 ? "윤년" : "평년"; 
+            }else {
+                isyear = "윤년";
+            }
+        }
+        //아니면 평년
+        else {
+            isyear = "평년";
+        }
+        console.log(isyear);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

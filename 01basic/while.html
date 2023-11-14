@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let i = 0;
+        // while(i<10){
+        //     console.log(i);
+        //     i++;
+        // }
+        let num;
+        let boolvar = true;
+        while(boolvar){
+            num = prompt("숫자입력");
+            //num이 숫자로만 되어있는지 체크 
+            //NaN이면 출력 NaN이 아니면 출력하고 반복종료
+            if(isNaN(Number(num))){
+                console.log("문자가 있습니다." + num);
+            }else if(Number(num)==0){
+                console.log("0입니다." + num);
+            }
+            else {
+                console.log("숫자만 있습니다." + num);
+                boolvar = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

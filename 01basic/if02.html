@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function idpassCheck(){
+            let aa = document.querySelector("#userid");
+            console.dir(aa);
+            let name = document.querySelector("#userid").value;
+            let pass = document.querySelector("#userpass").value;
+
+            if(name === "green") {
+                console.log("아이디가 일치합니다.");
+                if(pass === "1234"){
+                    console.log("로그인 되었습니다.");
+                }else {
+                    console.log("비밀번호가 틀렸습니다.");
+                }
+            }else {
+                console.log("아이디가 일치하지 않습니다.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <input type="text" 
+        id="userid" 
+        name="userid" 
+        placeholder="아이디"/>
+    </p>
+    <p>
+        <input type="password" 
+        id="userpass" name="userpass" 
+        placeholder="비밀번호"/>
+    </p>
+    <p>
+        <button id="btn" onclick="idpassCheck()">로그인</button>
+    </p>
+</body>
+</html>
