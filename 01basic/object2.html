@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let salaries = {
+            민영: 100,
+            금채: 150,
+            수정:  80,
+            소연:  90
+        }
+        let sum = 0;
+        for(let name in salaries){
+            sum = sum + salaries[name];
+        }
+        console.log("급여의 합계는 :  " + sum);
+
+        //메서드 : 객체가 가진 기능 
+        //프로퍼티 값으로 함수(함수표현식)를 할당 
+        let user = {
+            name: "그린",
+            age: 30,
+            sayHi: function(){
+                console.log("안녕하세요!")
+            },
+            //메서드 단축구문 
+            sayHi2() {
+                console.log("안녕하세요2");
+            }
+        }
+        user.sayHi2();
+        function sayBye(){
+            console.log("잘가");
+        }
+        //선언된 함수를 메서드로 등록 
+        user.sayBye = sayBye;
+        console.log(user);
+
+        //생성자 함수
+        function User(name, age, purpose, mbti){
+            //this={};
+            this.name = name;
+            this.age = age;
+            this.purpose = purpose;
+            this.mbti = mbti;
+            this.sayHi = function(){
+                console.log("안녕하세요");
+            }
+            //return this;
+        }
+        let user1 = new User("그린",30,"취업","enfp");
+        let user2 = new User("블루",22,"창업","isfp")
+        console.log(user1);
+        console.log(user2);
+        user1.sayHi();
+        user2.sayHi();
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

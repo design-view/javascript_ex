@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //빈배열 선언
+        let fruits = [];
+        let fruits2 = ["🍈","🍊","🍓","🍎"];
+        //배열 메소드 배우기
+        //01.push() 배열 제일 뒤에 추가
+        //02.pop() 배열 제일 뒤에 제거 
+        //03.unshift()  배열 제일 앞에 추가 
+        //04.shift()  배열 제일 앞에 요소 제거
+        fruits2.push("🍑");
+        fruits2.push("🍌");
+        console.log(fruits2);
+        fruits2.pop();
+        console.log(fruits2);
+        fruits2.unshift("🍉");
+        console.log(fruits2);
+        fruits2.shift();
+        console.log(fruits2);
+        //05.원하는 위치에 삭제추가
+        //splice(시작인덱스, 삭제할 아이템개수, 추가할아이템)
+        fruits2.splice(1,100);
+        console.log(fruits2);
+
+        //총점,평균
+        let scores = [99,50,60,70,80,85,95,99,55,35,60,75];
+        let sum=0;
+        for(let i=0; i<scores.length; i++){
+            sum = sum + scores[i];
+        }
+        let av = sum/scores.length;
+        console.log("총점 : " + sum +" , 평균 : " + av.toFixed(3));
+
+        let num = 12.12341234;
+        //12.123(x) "12.123"(o)
+        let numtoFixed = num.toFixed(3); 
+        console.log(typeof numtoFixed);
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

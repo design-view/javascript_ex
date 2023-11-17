@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.빈 객체 생성
+        //1)생성자 문법 let obj = new Object();
+        //2)리터럴 문법 let obj = {}; 
+        //2.프로퍼티 값 접근
+        //1).표기법   obj.keyname
+        //* key이름이 유효한 변수식별자(공백없고,숫자시작(x),$_만 가능)
+        // 일때만 가능 
+        //2)[]표기법  obj["keyname"]
+        //3.프로퍼티 추가 
+        //obj.keyname = "값";
+        //4.프로퍼티 삭제
+        //delete obj.keyname;
+        let dog = {
+            name: "구름",
+            age: 20,
+        }
+    
+        //프로퍼티 추가
+        dog.color = "흰색";
+        delete dog.age;
+        console.log(dog);
+        //프로퍼티 값 변경
+        dog.name = "흰둥이";
+        console.log(dog);
+        //키이름 변수사용
+        let key = "user name";
+        dog[key] = "됩니다.";
+        console.log(dog);
+
+        // let keyname = prompt("dog의 어떤 정보를 알고싶으세요?");
+        // console.log(dog[keyname]);
+        
+        let user = {
+            name: "그린",
+            age: 30,
+            isJob: true,
+        }
+        for(let a in user){
+            console.log(a);
+            console.log(user[a]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

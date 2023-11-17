@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text">
+        <button>할일추가</button>
+    </div>
+    <ul></ul>
+    <script>
+    
+        let btn = document.querySelector("button");
+        let input = document.querySelector("input");
+        let ul = document.querySelector("ul");
+        let todos = []; 
+        btn.addEventListener("click",function(){
+           addTodos();
+        });
+        //input에서 엔터키 keyCode 13번 를 클릭하면 할일배열에 등록하기
+        input.addEventListener("keypress",function(e){
+           if(e.keyCode==13){
+            addTodos();
+           }
+        });
+        function addTodos(){
+            todos.push(input.value);
+            input.value = "";
+            let str = "";
+            for(let i=0; i<todos.length; i++){
+                str += "<li>"+todos[i]+"</li>";
+            }
+            ul.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

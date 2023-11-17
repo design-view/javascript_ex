@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.가위, 바위, 보를 입력받는다. 예외코드는 작성안함
+        //2.컴퓨터는 랜덤값을 1,2,3중 받는다
+        //3.컴퓨터 랜덤값에 1=가위,2=바위,3=보를 대입
+        //4.나와 컴퓨터의 가위,바위,보 출력
+        //5.승패출력 
+        let user = prompt("가위, 바위, 보중 하나를 입력 하세요");
+        let computer = Math.floor(Math.random()*3)+1;
+        computer = computer == 1 ? 
+        "가위" : computer == 2 ? "바위" : "보"; 
+        console.log("나 : " + user +" , 컴퓨터 : " + computer);
+        //1.비겼을때 2.내가 이겼을때 3.컴퓨터가 이겼을때
+        if(user == computer){
+            console.log("비겼습니다.");
+        }else if((user=="가위" && computer=="보") || 
+        (user == "바위" && computer == "가위") ||
+        (user == "보" && computer == "바위")
+        ){
+            console.log("사용자가 이겼습니다.");
+        }else {
+            console.log("컴퓨터가 이겼습니다.");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

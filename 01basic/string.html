@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.length 문자열 길이
+        let txt = "그린컴퓨터아카데미";
+        document.write(txt.length);
+        //2.indexOf() 문자열안에 특정 문자열이 있는지 찾아서
+        //인덱스를 반환 없으면 -1;
+        let phone = "010-1234-4567";
+        document.write("<br/>" + phone.indexOf("-"));
+        //-이 없으면 잘작성하셨어요
+        //-이 있으면 다시작성하세요
+        if(phone.indexOf("-")== -1){
+            document.write("<br/> 잘작성하셨어요" );
+        }else {
+            document.write("<br/> 다시작성하세요" );
+        }
+        //3.lastIndexOf() 특정 문자열의 인덱스를 리턴
+        // 제일 마지막에 발견된 문자열의 index를 반환
+        document.write(phone.lastIndexOf("-"));
+        //4.slice(start,end) 시작위치와 종료위치(포함안함)를 지정하면
+        //문자열에서 해당부분을 잘라내서 반환
+        //slice(start) 시작위치부터 마지막까지 
+        //-음수 값도 허용 : 음수값을 주면 문자열의 끝에서부터
+        //거꾸로 
+        //5.substring(start,end) : 음수값을 허용하지 않음
+        let str = "apple,banana,kiwi";
+        let res = str.slice(6,12);
+        let res2 = str.slice(8);
+        let res3 = str.slice(-8);
+        document.write("<br/>"+res+" , "+str);
+        document.write("<br/>"+res2);
+        document.write("<br/>"+res3);
+        //6.substr(start,count)
+        //start만 주면 start부터 마지막 까지 반환 
+        let res4 = str.substr(2,3);
+        document.write("<br/>"+res4);
+        //7.replace("특정문자","***") 특정 문자열을 지정한 문자열로 변경해서 리턴
+        //일치하는 문자열이 여러개일때 
+        //처음 발견된 문자열만 변경된다.
+        let str2 = "재미있는 자바, 자바스크립트";
+        let res5 = str2.replace("자바","C");
+        document.write("<br/>"+res5);
+        //8.대문자로 변경, 소문자로 변경
+        //toUpperCase(), toLowerCase()
+        let str3 = "Hello World";
+        let res6 = str3.toUpperCase();
+        let res7 = str3.toLowerCase();
+        document.write("<br/>"+res6);
+        document.write("<br/>"+res7);
+        //9.trim() 문자열의 앞,뒤 공백을 모두 제거
+        let str4 = "     Hello World        ";
+        let res8 = str4.trim();
+        console.log("<br/>"+res8);
+        //10.charAt() 문자열에서 특정 인덱스에 해당하는 문자
+        //하나를 반환
+        //let str3 = "Hello World";
+        //charCodeAt()  특정 인덱스에 해당하는 문자의 유니코드 
+        //값을 반환 
+        let res9 = str3.charAt(0);
+        let res10 = str3.charCodeAt(0);
+        console.log(res9);
+        console.log(res10);
+        //11.split() 문자열 내의 특정 구분자를 기분으로 문자열을
+        //분리해서 배열로 반환
+        let birthday = "1998-08-12";
+        let arr = birthday.split("-");
+        console.log(arr);
+        //12.startsWith(), endsWith()
+        //문자열의 시작이 파라미터로 전달된 문자열로 시작하는지 체크
+        //시작하면 true, false
+        let url = "https://naver.com";
+        if(url.startsWith("https")){
+            console.log("올바른 주소입니다.")
+        }
+        let file = "abc.jpg";
+        if(file.endsWith("jpg")){
+            console.log("이미지 파일 입니다.")
+        }
+        let str5 = "오늘은금요일";
+        for(let i=0; i<str5.length; i++){
+            console.log(str5.charAt(i));
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

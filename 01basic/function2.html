@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //기본값 매개변수 es6추가
+        //함수 호출시 매개변수에 인수를 전달하지 않으면
+        //그 값은 undefined가 됨   
+        showMessage("민영");
+        showMessage("그린","하하하하하하");
+        function showMessage(from, text="안녕"){
+            // if(text===undefined) {
+            //     text = "안녕";
+            // }
+            console.log(from +" : " +text);
+        }
+        //나머지 매개변수 Rest parameters (es6추가)
+        //...
+        //배열 형태로 전달  ...args 배열형태임.
+        function addAll(...arr){
+            let sum = 0;
+            for(let i=0; i<arr.length; i++){
+                sum += arr[i];
+            }
+            return sum;
+        }
+        console.log(addAll(10,20,30));
+        console.log(addAll(10,20,30,40));
+        //함수 표현식
+        let println = function(message) {
+            console.log(message);
+        };
+        println("함수표현식");
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

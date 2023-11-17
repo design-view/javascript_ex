@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/dog1.jpg" alt="">
+    <button>클릭</button>
+    <div>
+        안녕하세요
+    </div>
+    <ul>
+
+    </ul>
+    <script>
+        let btn = document.querySelector("button");
+        let img = document.querySelector("img");
+        let div = document.querySelector("div");
+        let ul = document.querySelector("ul");
+        div.innerHTML = "<h2>안녕</h2>";
+        let todos = ["자바스크립트 공부",
+        "자바공부","프로그래머스 문제풀기"];
+        let todosstr = "";
+        for(let i=0; i<todos.length; i++){
+            todosstr += "<li>"+todos[i]+"</li>";
+        }
+        //"<li>자바스크립트공부</li><li>자바공부</li><li>프로그래머스 문제풀기</li>"
+        ul.innerHTML = todosstr;
+
+        // 요소.속성 ---> 속성에 담간 값
+        // 요소.속성 = "다른값"  값 변경
+        // arr[0] 
+        // arr[0] = 10;
+        alert(img.src);
+        //btn클릭하면 이미지 변경
+        btn.addEventListener("click",function(){
+            img.src = "./images/dog2.jpg";
+        });
+    </script>
+</body>
+</html>

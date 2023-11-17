@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <input/>
+    <p>점수 : <span>0</span>점</p>
+    <script>
+        let div = document.querySelector("div");
+        let wordArr = ["사과","딸기","오렌지","피자","삼겹살","파스타","보쌈","라면","초밥","치킨"];
+        let input = document.querySelector("input");
+        let sum = 0;
+        let span = document.querySelector("span");
+        //1보다 작은 실수 랜덤
+        //10보다 작은 실수 랜덤
+        //10보다 작은 정수 랜덤  Math.floor(Math.random()*10)
+        div.innerHTML = wordArr[Math.floor(Math.random()*10)];
+        input.addEventListener("keypress",function(e){
+            //엔터키인지 확인
+            if(e.keyCode == 13 && div.innerHTML == input.value){
+                //점수는 길이에 따라서 길이*10점 추가
+                sum += input.value.length*10;
+                input.value = "";
+                div.innerHTML = wordArr[Math.floor(Math.random()*10)];
+                
+                //화면에 점수 나타내기
+                span.innerHTML = sum;
+            } 
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //function 함수선언(이건함수야!!)
+        //printhi  함수식별자(함수이름)
+        //a  매개변수
+        //printhi("민영")  함수호출 
+        function printhi(a){
+            console.log( a + "님 안녕하세요");
+        }
+        printhi("민영");
+        printhi("그린");
+
+        let num1 = 5;
+        let num2 = 6;
+        let result1 = num1+num2;
+        console.log(result1);
+        let num3 = 10;
+        let num4 = 15;
+        let result2 = num3 + num4;
+
+        function add(a,b){
+            return a+b;
+        }
+        let result3 = add(10,11);
+        let result4 = add(7,8);
+
+        function printgreen(){
+            console.log("그린");
+            return "aaaa";
+            console.log("실행안됨");
+        }
+        let result5 = printgreen();
+        console.log(result5);
+        //배열을 전달받아 제일 작은수를 리턴
+        function min(arr){
+            let num = arr[0];
+            for(let i=1; i<arr.length; i++){
+                num = num > arr[i] ? arr[i] : num;
+            }
+            return num;
+        }
+       
+        let result = min([22,10,9,8,7,2,30]);
+        console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

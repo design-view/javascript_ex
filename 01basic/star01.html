@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //*       i=0   j 1번반복
+        //**      i=1   j 2번
+        //***     i=2   j 3번
+        //****    i=3   j 4번
+        //*****   i=4   j 5번
+        for(let i=1; i<6; i++){
+            let str = "";
+            for(let j=0; j<i; j++){
+                str += "*";
+            }
+            console.log(str);
+        }
+        //0,1,2,3,4
+        for(let i=0; i<5; i++){
+            let str= "";
+            //5,4,3,2,1,0
+            for(let j=0; j<5-i; j++){
+                str += "*";
+            }
+            console.log(str);
+        }
+        //"    *"
+        //"   **"
+        //"  ***"
+        //" ****"
+        //"*****"
+        //1,2,3,4,5
+        for(let i=1; i<6; i++){
+            let str = "";
+            for(let j=1; j<6; j++){
+                //str 
+                //i=1  공백 4개 * 1개
+                //i=2  공백 3개 * 2개
+                //i=3  공백 2개 * 3개
+                //i=4  공백 1개 * 4개
+                //i=5  공백 0개 * 5개 
+                //j ---> 1,2,3,4,5
+                //"    *"
+                //"   **"
+                //j<4
+                //j<3
+                str += j<6-i ? " " : "*";
+            }
+            console.log(str);
+        }
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div { 
+            height: 400px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div>클릭하세요</div>
+    <a href="https://naver.com">이동</a>
+    <script>
+        let div = document.querySelector("div");
+        let a = document.querySelector("a");
+        //a요소를 클릭하면 ~ 해라 
+        a.addEventListener("click",function(e){
+            //연결된 기본 이벤트 제거 
+            e.preventDefault();
+            alert("클릭");
+        });
+        //표준 이벤트 연결자 
+        div.addEventListener("click",function(){
+            console.log("클릭했습니다.");
+        });
+        div.addEventListener("mouseenter",function(){
+            console.log("마우스를 올렸습니다.");
+        });
+        div.addEventListener("mouseleave",function(){
+            console.log("마우스가 벗어났습니다.");
+        });
+        div.addEventListener("mousemove",function(e){
+            let x = e.pageX;
+            let y = e.pageY;
+            console.log("x좌표 : " + x + " , y좌표 : " + y);
+        })
+        function consolePrint(){
+            console.log("클릭했습니다.");
+        }
+    </script>
+</body>
+</html>

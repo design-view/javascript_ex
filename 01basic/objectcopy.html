@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let user = {
+            name: "green",
+            age: 30,
+        }
+        //참조 복사(번지 복사) 
+        let user2 = user;
+        let user3 = {};
+        //빈객체에 user 프로퍼티를 복사
+        for(let key in user){
+            //user3[name] = "green"  
+            //user3[age] = 30
+            user3[key] = user[key];
+        }
+        let clone = Object.assign({},user);
+        user.name = "blue";
+        console.log(user);
+        console.log(user2);
+        console.log(user3);
+        console.log(clone);
+
+       let dog = {
+            name: "구름",
+            age: 4
+       }
+       let animal = {
+            kind : "강아지",
+       }
+       Object.assign(dog, {name: "콩이", color: "흰색"}, 
+       animal);
+       console.log(dog);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
