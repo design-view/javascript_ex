@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box;}
+        li {list-style: none;}
+        header {
+            background-color: pink;
+            text-align: center;
+            line-height: 80px;
+        }
+        header div {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        header div span {
+            width: 60%;
+            height: 6px;
+            background-color: #fff;
+            margin: 5px 0;
+        }
+        #leftmenu {
+            position: absolute;
+            width: 300px;
+            left: -100%;
+            top: 0;
+            height: 100vh;
+            transition: 0.5s;
+        }
+        #leftmenu.on {
+            left: 0;
+        }
+        #leftmenu div {
+            line-height: 80px;
+            background: tomato;
+            width: 120px;
+            text-align: center;
+            color: #fff;
+        }
+        #leftmenu > ul > li {
+            border-top: 1px solid #ccc;
+            line-height: 32px;
+            font-size: 14px;
+        }
+        #leftmenu > ul > li > ul {
+            background-color: #eee;
+            height: 0;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+        #leftmenu > ul > li > ul.on {
+            height: 96px;
+        }
+        #leftmenu > ul > li li {
+            line-height: 24px;
+            padding-left: 20px;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <span></span><span></span><span></span>
+        </div>
+        <h1>Logo</h1>
+    </header>
+    <div id="leftmenu">
+        <div>메뉴닫기</div>
+        <ul>
+            <li>큰메뉴1
+                <ul>
+                    <li>서브메뉴1</li>
+                    <li>서브메뉴2</li>
+                    <li>서브메뉴3</li>
+                    <li>서브메뉴4</li>
+                </ul>
+            </li>
+            <li>큰메뉴2
+                <ul>
+                    <li>서브메뉴1</li>
+                    <li>서브메뉴2</li>
+                    <li>서브메뉴3</li>
+                    <li>서브메뉴4</li>
+                </ul>
+            </li>
+            <li>큰메뉴3
+                <ul>
+                    <li>서브메뉴1</li>
+                    <li>서브메뉴2</li>
+                    <li>서브메뉴3</li>
+                    <li>서브메뉴4</li>
+                </ul>
+            </li>
+            <li>큰메뉴4
+                <ul>
+                    <li>서브메뉴1</li>
+                    <li>서브메뉴2</li>
+                    <li>서브메뉴3</li>
+                    <li>서브메뉴4</li>
+                </ul>
+            </li>
+            <li>큰메뉴5
+                <ul>
+                    <li>서브메뉴1</li>
+                    <li>서브메뉴2</li>
+                    <li>서브메뉴3</li>
+                    <li>서브메뉴4</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="blackbg"></div>
+    <script>
+        let showMenuBtn = document.querySelector("header > div");
+        let leftmenu = document.querySelector("#leftmenu");
+        let hideMenuBtn = document.querySelector("#leftmenu > div");
+        let lis = document.querySelectorAll("#leftmenu > ul > li");
+        //div클릭하면 leftmenu on클래스 지정
+        showMenuBtn.addEventListener("click",function(){
+            leftmenu.classList.add("on");
+        })
+        //hideMenuBtn 클릭하면 leftmenu on클래스 제거 
+        hideMenuBtn.addEventListener("click",function(){
+            leftmenu.classList.remove("on");
+        })
+        lis.forEach((li, index)=>{
+            li.addEventListener("click", function(){
+                li.querySelector("ul").classList.toggle("on");
+            })
+        })
+    </script>
+</body>
+</html>

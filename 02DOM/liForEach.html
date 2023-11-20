@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+    <script>
+        //유사배열 lis[index]
+        let lis = document.querySelectorAll("li");
+        console.log(lis);
+        //lis.forEach(li=>li.style.background="red");
+        lis.forEach(function(li){
+            li.style.background = "red";
+        })
+        // lis[0].style.background = "pink";
+        // lis[1].style.background = "pink";
+        // lis[2].style.background = "pink";
+        // lis[3].style.background = "pink";
+        let numbers = [10,20,30,40,50];
+        console.log(numbers);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function randomQuiz(answer, printYes, printNo){
+            if(answer==="green"){
+                printYes();
+            }else {
+                printNo();
+            }
+        }
+        let printYesf = function(){console.log("yes")};
+        let printNof = function(){ console.log("no")};
+        randomQuiz("green",printYesf,printNof);
+        randomQuiz("blue",printYesf,printNof);
+
+        function intoroduce(lastName, firstName, callback){
+            let fullname = lastName + firstName;
+            callback(fullname);
+        }
+        intoroduce("김","그린",function(name){console.log(name)});
+        //두번째 매개변수에 전달된 시간이 경과하면
+        //첫번째 매개변수에 전달된 콜백 함수가 호출된다.
+        setTimeout(()=>
+            console.log("1초후 출력됩니다.")
+        , 1000);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

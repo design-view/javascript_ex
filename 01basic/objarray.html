@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Student(name, age, enrolled, score){
+            this.name = name;
+            this.age = age;
+            this.enrolled = enrolled;
+            this.score = score;
+        }
+        let students = [
+            new Student("A",29,true,45),
+            new Student("B",28,false,80),
+            new Student("C",30,true,90),
+            new Student("D",40,false,66),
+            new Student("E",18,true,88)
+        ];
+
+        //01. students배열에서 점수가 90점인 학생 찾기 
+        //find(함수) 하나의 값을 찾을시 그 값을 리턴하고 종료
+        let stu1 = students.find(function(value){
+            return value.score === 90;
+        });
+        console.log(stu1);
+        //02. enrolled가 true인 학생만 새로운 배열로 만드세요
+        //filter 
+        let students2 = students.filter(function(value){
+            return value.enrolled;
+        });
+        console.log(students2);
+        //03. students배열에서 score만 scores배열로 반환
+        //map()
+        //{name: 'A', age: 29, enrolled: true, score:80}
+        let scores = students.map(function(value){
+            return value.score;
+        }).join(",")
+        //let scoresStr = scores.join(",");
+        console.log(scores);
+
+        //햄버거 예제 
+        //1.생성자 함수 생성
+        function Burger(name, price, size){
+            this.name = name;
+            this.price = price;
+            this.size = size;
+        }
+        //2.burgers배열 생성
+        let burgers = [
+            new Burger("새우버거",5000,"big"),
+            new Burger("불고기버거",4500,"regular"),
+            new Burger("쥬니어불고기버거",3500,"small"),
+            new Burger("치즈버거",5500,"regular"),
+            new Burger("스테이크버거",7000,"big"),
+            new Burger("치킨버거",5500,"regular"),
+            new Burger("야채버거",4500,"regular"),
+            new Burger("쥬니오새우버거",3000,"small")
+        ];
+        //01.regular인 햄버거만 새로운 배열로
+        let burgers2 = burgers.filter(burger=>burger.size === "regular");
+        console.log(burgers2);
+        //02.햄버거의 이름만 배열로 
+        //[{ name: "새우버거", price: 5500, size:"regular"},
+        //{ name: "새우버거", price: 5500, size:"regular"},
+        //{ name: "새우버거", price: 5500, size:"regular"}]
+        //["새우버거","치킨버거"]
+        let burgers3 = burgers.map(burger=>burger.name);
+        console.log(burgers3);
+        //03.가격이 5000원 이상인 햄버거
+        let burgers4 = burgers.filter(function(burger){
+            return burger.price >= 5000;
+        })
+        //04.이름이 스테이크 버거인 햄버거 찾기
+        let burger = burgers.find(function(burger){
+            return burger.name === "스테이크버거";
+        })
+        console.log(burgers4);
+        console.log(burger);
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

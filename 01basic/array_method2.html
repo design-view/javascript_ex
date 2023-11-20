@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let numlist = [10,20,30,40,50,60,70];
+        //메서드 
+        //map()
+        let numlist2 = numlist.map(function(value){
+            return value+5;
+        })
+        //filter()
+        let numlist3 = numlist.filter(function(value){
+            return value >= 50;
+        })
+        //find() 
+        let v = numlist.find(function(value){
+            return value >= 50;
+        })
+        //forEach() 배열을 순회하기 위해 사용 
+        //매개변수는 하나는 반드시 필수 value필수
+        //그 외는 선택 사항 
+        numlist.forEach(function(value,index,arr){
+            console.log(value);
+            console.log(index);
+            console.log(arr);
+        })
+        console.log(numlist2);
+        console.log(numlist3);
+        console.log(v);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

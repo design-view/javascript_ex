@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .on {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button id="btn1">add</button>
+    <button id="btn2">remove</button>
+    <button id="btn3">toggle</button>
+    <script>
+        let div = document.querySelector("div");
+        let btn1 = document.querySelector("#btn1");
+        let btn2 = document.querySelector("#btn2");
+        let btn3 = document.querySelector("#btn3");
+        btn1.addEventListener("click",function(){
+            //div에 on클래스 지정하기
+            div.classList.add("on");
+        })
+        btn2.addEventListener("click",function(){
+            div.classList.remove("on");
+        })
+        btn3.addEventListener("click",function(){
+            div.classList.toggle("on");
+            //비활성화 true지정하면 비활성화 
+            btn1.disabled = true;
+        })
+    </script>
+</body>
+</html>
