@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin:0; padding: 0; box-sizing: border-box;}
+        body {
+            width: 100%;
+            /* 브라우져를 기준으로 100% vh */
+            height: 100vh;
+        }
+        div {
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div><img src="./images/1.jpg" alt=""></div>
+    <div><img src="./images/2.jpg" alt=""></div>
+    <div><img src="./images/3.jpg" alt=""></div>
+    <div><img src="./images/4.jpg" alt=""></div>
+    <script>
+        let divs = document.querySelectorAll("div");
+        divs.forEach(div=>div.style.opacity=0);
+        divs[0].style.opacity = 1;
+        let index = 0;
+        let next;
+        setInterval(function(){
+            next = (index+1) % 4;   //0,1,2,3,0,1,2,3,0,1,2,3
+            divs[index].style.opacity = 0;
+            divs[next].style.opacity = 1;
+            index = next;
+        },3000);
+    </script>
+</body>
+</html>

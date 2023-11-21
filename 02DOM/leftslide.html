@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { width: 100%; height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        #wrap {
+            width: 480px;
+            height: 360px;
+            position: relative;
+            overflow: hidden;
+        }
+        #movediv {
+            width: 400%;
+            height: 360px;
+            position: absolute;
+            top:0;
+            left: 0;
+            display: flex;
+            transition: 0.5s;
+        }
+        #indi {
+            position: absolute;
+            left: 50%;
+            width: 300px;
+            height: 40px;
+            transform: translate(-50%,-50%);
+            top: calc(50% + 200px);
+            display: flex;
+            justify-content: center;
+        }
+        #indi span {
+            font-size: 0;
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            border-radius: 50%;
+            margin: 6px;
+        }
+        #indi span.on {
+            background-color: red;
+        }
+        #btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: antiquewhite;
+        }
+        #prev {
+            position: absolute;
+            left: -300px;
+            width: 50px;
+        }
+        #next {
+            position: absolute;
+            left: 250px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="movediv">
+            <div><img src="./images/1.jpg" alt=""></div>
+            <div><img src="./images/2.jpg" alt=""></div>
+            <div><img src="./images/3.jpg" alt=""></div>
+            <div><img src="./images/4.jpg" alt=""></div>     
+        </div>
+    </div>
+    <div id="indi"></div>
+    <div id="btn">
+        <button id="prev">이전</button>
+        <button id="next">다음</button>
+    </div>
+    <script>
+        let div = document.querySelector("#movediv");
+        let divs = document.querySelectorAll("#movediv div");
+        let indi = document.querySelector("#indi");
+        let nextBtn = document.querySelector("#next");
+        let prevBtn = document.querySelector("#prev");
+        let str = "";
+        divs.forEach(function(value,index){
+            str += "<span>"+index+"</span>";
+        })
+        //<span>0</span><span>1</span><span>2</span><span>3</span>
+        indi.innerHTML = str;
+        let spans = document.querySelectorAll("#indi span");
+        console.log(spans);
+        //3초마다 div.style.left 0, -100, -200, -300 0 -100 -200 -300 0
+        let current = 0;
+        spans[current].classList.add("on");
+        //indi이벤트연결
+        spans.forEach((span,index)=>{
+            span.addEventListener("click",function(){
+                divMove(index);
+            })
+        })
+        //다음 버튼 이벤트
+        nextBtn.addEventListener("click",function(){
+            //다음이미지 보기
+            let next = current == divs.length-1 ? 0 : current+1;
+            divMove(next);
+        })
+        //마우스 올렸을때 setInterval정지
+        nextBtn.addEventListener("mouseenter",function(){
+            stopIt();
+        })
+        //마우스 땠을때 setInterval시작
+        nextBtn.addEventListener("mouseleave",function(){
+            startIt();
+        })
+        //마우스 올렸을때 setInterval정지
+        prevBtn.addEventListener("mouseenter",function(){
+            stopIt();
+        })
+        //마우스 땠을때 setInterval시작
+        prevBtn.addEventListener("mouseleave",function(){
+            startIt();
+        })
+        //이전 버튼 이벤트
+        prevBtn.addEventListener("click",function(){
+            let prev = current == 0 ? divs.length-1 : current-1;
+            divMove(prev);
+        })
+       
+        let timer;
+        //자동이미지 전환 함수
+        startIt();
+        function startIt(){
+            timer =  setInterval(function(){
+            current = current == divs.length-1 ? 0 : current+1 ;
+            divMove(current);
+            },3000);
+        }
+        //자동이미지 전환 정지함수
+        function stopIt(){
+            clearInterval(timer);
+        }
+        //div가 이동하는 함수
+        function divMove(divnum){
+            div.style.left=-(divnum*100)+"%";
+            current = divnum;
+            spans.forEach(v=>v.classList.remove("on"));
+            spans[current].classList.add("on");
+        }
+
+
+    </script>
+</body>
+</html>
