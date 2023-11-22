@@ -17,13 +17,9 @@
         setInterval(function(){
             //현재 시간 객체 
             let now = new Date();
-            let hour = now.getHours();
-            let minute = now.getMinutes();
-            let second = now.getSeconds();
-
-            hourElem.innerHTML = hour;
-            minuteElem.innerHTML = minute;
-            secondElem.innerHTML = second;
+            hourElem.innerHTML = now.getHours();
+            minuteElem.innerHTML = now.getMinutes();
+            secondElem.innerHTML = now.getSeconds();
         },1000)
     </script>
 </body>
