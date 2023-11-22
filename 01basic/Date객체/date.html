@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="hour">시간</span>
+    <span id="minute">분</span>
+    <span id="second">초</span>
+    <script>
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let nowdate = date.getDate();
+        //템플릿 리터럴 `` ${표현식} 
+        console.log(`오늘은 ${year}년 ${month}월 ${nowdate}일 입니다.`);
+
+        let nowDateString = date.toLocaleDateString();
+        let nowTimeStirng = date.toLocaleTimeString();
+        console.log(nowDateString);
+        console.log(nowTimeStirng);
+    </script>
+</body>
+</html>

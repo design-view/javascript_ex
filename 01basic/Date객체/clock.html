@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="hour">시간</span>
+    <span id="minute">분</span>
+    <span id="second">초</span>
+    <script>
+        let hourElem = document.querySelector("#hour"); 
+        let minuteElem = document.querySelector("#minute");
+        let secondElem = document.querySelector("#second");
+        
+        setInterval(function(){
+            //현재 시간 객체 
+            let now = new Date();
+            let hour = now.getHours();
+            let minute = now.getMinutes();
+            let second = now.getSeconds();
+
+            hourElem.innerHTML = hour;
+            minuteElem.innerHTML = minute;
+            secondElem.innerHTML = second;
+        },1000)
+    </script>
+</body>
+</html>
