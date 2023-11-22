@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Number객체 
+        //Number Constructor (생성자)
+        //new Number(value);
+
+        let x = new Number(123);
+        let y = new Number("123");
+        let z = new Number("str");
+        let i = Number("123");
+        console.log(x);
+        console.log(y);
+        console.log(z);
+        console.log(i);
+        console.log(i===x);
+
+        //Number객체 프로퍼티
+        //1.Number.MAX_VALUE : 자바스크립트에서 사용가능한 가장 큰숫자
+        //2.Number.MIN_VALUE : 자바스크립트에서 사용가능한 가장 작은숫자
+        //3.parseInt("문자열") : 정수변환
+        //4.isInteger(): 매개변수에 전달된 값이 정수면 true 
+        //5.toFixed() : 숫자를 고정 소수점 표기법으로 표시해줌
+        //아니면 false를 리턴
+        let num2 = Number("123xx"); //-->NaN
+        let num = parseInt("123xx");   //-->정수로 변환 변환못하는 문자포함시
+        //정수에 해당하는 문자열만 정수만 변환
+        console.log(num);
+        console.log(num2);
+        Number.isInteger(123);  //true
+        Number.isInteger(0.5);  //false
+        Number.isInteger("123"); //false
+        Number.isInteger(-123);  //true
+
+        let num3 = 12345.6789;
+        console.log(num3.toFixed()); 
+        console.log(num3.toFixed(1));   //return 12345.7
+        console.log(num3.toFixed(2));   //return 12345.68
+        console.log(num3.toFixed(3));   //return 12345.679
+        console.log(num3.toFixed(6));   //return 12345.678900
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

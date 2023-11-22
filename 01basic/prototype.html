@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let obj = { name:"구름", age: 4};
+        console.dir(obj);
+        console.log(obj.hasOwnProperty("name"));
+        console.log(obj.__proto__ === Object.prototype);
+
+        function Person(name){
+            this.name = name;
+            this.printbye = function(){
+                console.log("bye");
+            }
+        }
+        Person.prototype.gender = "male";
+        Person.prototype.printhi = function(){
+            console.log("hi");
+        }
+        let person1 = new Person("그린");
+        let person2 = new Person("그린");
+        person1.printhi();
+        console.dir(person1);
+        console.dir(person2);
+        //person1을 생성한 객체는 Person() 생성자 함수이다. 
+        console.log(person1.gender);
+        console.log(person1.constructor === Person);
+
+        //스트링객체 
+        let strobj = new String("abc");
+        //기본타입 string
+        let str = "abc";
+
+        console.log(strobj === str);
+        console.log(typeof strobj);
+        console.dir(strobj);
+        console.log(typeof str);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
