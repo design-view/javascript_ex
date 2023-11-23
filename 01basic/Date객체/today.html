@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let today = new Date();
+        let dayNames = ["일요일","월요일","화요일","수요일","목요일"
+        ,"금요일","토요일"];
+        //0~6 일요일~토요일
+        let day = dayNames[today.getDay()];
+        let year = today.getFullYear();//년도
+        let month = today.getMonth() + 1; 
+        let date = today.getDate();
+        let hour =  today.getHours();
+        let minute = today.getMinutes();
+        let second =  today.getSeconds();
+        let ampm = hour >= 12 ? "pm" : "am";
+        hour = hour % 12;
+        console.log(`${year}년 ${month}월 ${date}일 ${day}  ${hour}시${ampm} ${minute}분 ${second}초 `);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

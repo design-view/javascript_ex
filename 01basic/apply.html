@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const green = {
+            name: "green"
+        }
+        const tom = {
+            name: "tom"
+        }
+        function showThisName(){
+            console.log(this.name); //window
+        }
+        showThisName();
+        showThisName.apply(green);
+        showThisName.call(tom);
+
+        function update(birth, occupation){
+            this.birth = birth;   //this--->window
+            this.occupation = occupation;
+        }
+        update.call(green,1999,"teacher");
+        console.log(green);
+        update.apply(tom, [2000,"teacher"]);
+        console.log(tom);
+        //green.birth = 1999
+     
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

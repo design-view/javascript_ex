@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box;}
+        li {list-style: none;}
+        #wrap{
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        #header {
+            background: linear-gradient(115.76304026809191deg, rgba(157, 189, 204,1) 4.927083333333334%,rgba(231, 61, 161,1) 97.84374999999999%);
+            text-align: center;
+            padding: 30px;
+        }
+        #header h1 { color: #fff;}
+        #header input {
+            width: 80%;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            font-size: 24px;
+            outline: none;
+            padding-left: 20px;
+        }
+        #header button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            font-size: 24px;
+        }
+        ul li {
+            line-height: 50px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            background-color: #e2e1e1;
+            border-bottom: 1px solid #ccc;
+        }
+        ul li.on {
+            background-color: #efeeee;
+        }
+        ul li.on .toggle{
+           text-decoration: line-through;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>to do list</h1>
+            <div>
+                <input type="text">
+                <button>+</button>
+            </div>
+        </div>
+        <ul></ul>
+    </div>
+    <script>
+        //button을 클릭하면 
+        //input값으로 li를 만들고 ul에 추가
+        //x클릭하면 해당 li삭제 
+        let btn = document.querySelector("button");
+        let input = document.querySelector("input");
+        let ul = document.querySelector("ul");
+        //btn을 클릭하면 ~~~ 해라
+        btn.addEventListener("click",function(){
+            let li = document.createElement("li");
+            li.innerHTML = `<span class="toggle" data>${input.value}</span><span class="remove">X</span>`;
+            ul.appendChild(li);
+            input.value="";
+            liremove();
+        })
+        function liremove(){
+            let removes = document.querySelectorAll(".remove");
+            let toggles = document.querySelectorAll(".toggle");
+            toggles.forEach(function(to,index){
+                to.addEventListener("click",function(e){
+                    e.preventDefault();
+                    if(this.parentElement.classList.contains("on")){
+                        this.parentElement.classList.remove("on");
+                        console.log("Aaaa");
+                    }else {
+                        this.parentElement.classList.add("on");
+                    }
+                    
+                    
+                })
+            })
+            removes.forEach(re=>{
+                re.addEventListener("click",function(){
+                    this.parentElement.remove();
+                })
+            })
+        }
+    </script>
+</body>
+</html>

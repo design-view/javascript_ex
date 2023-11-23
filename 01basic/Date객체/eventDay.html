@@ -101,6 +101,14 @@
         let re = Math.floor((todayTime-startTime) / (1000*60*60*24));
         text.innerHTML = `우리가 만난지 ${re}입니다.`;
       }
+      else if(btnValue ==="50"){
+        firstDate.setDate(50);
+        text.innerHTML=firstDate.toLocaleDateString();
+        
+      }else {
+        firstDate.setDate(100);
+        text.innerHTML=firstDate.toLocaleDateString();
+      }
     })
 
 

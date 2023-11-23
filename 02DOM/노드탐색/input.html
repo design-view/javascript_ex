@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text">
+        <button>추가</button>
+    </div>
+    <ul>
+        <li>리스트</li>
+        
+    </ul>
+    <script>
+        let btn = document.querySelector("button");
+        let input = document.querySelector("input");
+        let ul = document.querySelector("ul");
+        //클릭하면 input의 값을 li로 추가하기 
+        btn.addEventListener("click",function(){
+            let li = document.createElement("li");
+            li.innerHTML=`${input.value}<span>삭제</span>`;
+            input.value="";
+            ul.appendChild(li);
+            spanEvent();
+        })
+        function spanEvent(){
+            let spans = document.querySelectorAll("span");
+            spans.forEach(span=>{
+                span.addEventListener("click",function(){
+                    this.parentElement.remove();
+                })
+            })
+        }
+        
+    </script>
+</body>
+</html>

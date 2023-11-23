@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <input type="text" id="year">
+            <input type="text" id="month">
+            <input type="text" id="date">
+        </div>
+        <div id="buttons">
+            <button name="50">50일은?</button>
+            <button name="100">100일은?</button>
+            <button name="today">today</button>
+        </div>
+        <div id="text"></div>
+    </div>
+    <script>
+        //인풋에 숫자를 입력 받는다 입력값 : input.value
+        //입력받은 년, 월, 일에 해당하는 Date객체 생성 
+        //new Date(년, 월(0~11), 일)  new Date("년-월-일")
+        //버튼을 클릭하면 그날짜에 해당하는 버튼에따라 50일뒤,100일뒤, 오늘까지 날짜를 출력
+        //setDate()
+        //getTime() 
+
+        let inputYear = document.querySelector("#year");
+        let inputMonth = document.querySelector("#month");
+        let inputDate = document.querySelector("#date");
+        let btns = document.querySelector("#buttons");
+        let text = document.querySelector("#text");
+        btns.addEventListener("click",function(e){
+           //e.target 실제 클릭한 요소 
+           //input입력값이 유효하면 { year: value, month: value, date: value}
+           //이상하면 undefined;
+           let getDate = getInputValue();
+           if(getDate){
+            let someDay = new Date(getDate.year, getDate.month, getDate.date);
+            //오늘 버튼을 클릭했다면
+            if(e.target.name === "today"){
+                let toDay = new Date();
+                let re = Math.floor((toDay.getTime() - someDay.getTime())/(1000*60*60*24));
+                text.innerHTML = `우리가 만난지 ${re}일째 입니다.`;
+            }else {
+                someDay.setDate(someDay.getDate()+Number(e.target.name));
+                text.innerHTML = someDay.toLocaleDateString();
+            }
+           }
+        })
+        // btns[0].addEventListener("click",function(){
+        //     //new Date("년-월-일")
+        //     getInputValue();
+        //     let someDay = new Date(`${inputYear.value}-${inputMonth.value}-${inputDate.value}`);
+        //     someDay.setDate(50);
+        //     text.innerHTML = someDay.toLocaleDateString();
+        // })
+        // btns[1].addEventListener("click",function(){
+        //     //new Date("년-월-일")
+        //     let someDay = new Date(`${inputYear.value}-${inputMonth.value}-${inputDate.value}`);
+        //     someDay.setDate(100);
+        //     text.innerHTML = someDay.toLocaleDateString();
+        // })
+        // btns[2].addEventListener("click",function(){
+        //     //new Date("년-월-일")
+        //     let someDay = new Date(`${inputYear.value}-${inputMonth.value}-${inputDate.value}`);
+        //     let now = new Date();
+        //     let forday = Math.floor((now.getTime()-someDay.getTime())/(1000*60*60*24));
+        //     text.innerHTML = `오늘까지 ${forday}일이 지났습니다.`;
+        // })
+
+        //인풋값을 체크하는 함수
+        function getInputValue(){
+            //input값이 하나라도 빈칸이면 경고창 띄우고 함수종료
+            //if조건문 안에 데이터가 오면 boolean타입으로 자동형변환 
+            //"" ---> false(+!) ----> true
+            if(!inputYear.value || !inputMonth.value || !inputDate.value){
+                console.log(inputYear.value,inputMonth.value,inputDate.value);
+                alert("날짜를 입력하세요");
+                return;
+            }
+            //숫자만 입력했는지 체크 
+            if(isNaN(Number(inputYear.value)) 
+            || isNaN(Number(inputMonth.value)) 
+            || isNaN(Number(inputDate.value))){
+                alert("숫자만 입력해주세요");
+                return;
+            }
+            let firstDay = {
+                year: Number(inputYear.value),
+                month: Number(inputMonth.value)-1,
+                date: Number(inputDate.value)
+            }
+            return firstDay;
+        }
+    </script>
+</body>
+</html>

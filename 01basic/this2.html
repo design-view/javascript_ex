@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myfun(){
+            console.log("myfun의 this : " + this); //window
+            function bar(){
+                console.log("bar의 this : " + this); //window
+            }
+            bar();
+        }
+        myfun();
+        var value = 1;
+        let obj = {
+            value: 10,
+            myfun: function(){
+                let that = this;    // this === obj 
+                console.log("obj객체의 메소드 myfun의 this : " + this);  //obj
+                console.log("obj객체의 value값은 : " +this.value);       //10
+                //내부함수
+                function bar(){
+                    console.log("메소드의 내부함수 bar의 that :" + that);    //obj
+                    console.log("메소드의 내부함수 bar의 value값은 : " +that.value); //10
+                }
+                bar();
+            }
+        }
+        obj.myfun();
+        let obj2 = {
+            value: 100,
+            myfun: function(){
+                setTimeout(function(){
+                    console.log("내부함수 콜백 this : " + this);
+                    console.log("내부함수 콜백this.value: " + this.value);
+                },1000);
+            }
+        }
+        obj2.myfun();
+        let obj3 = {
+            value: 50,
+            myfun: function(){
+                console.log("myfun의 this : " + this);
+                console.log("value : "+this.value);
+                function bar(x,y){
+                    console.log("x는 : " + x);
+                    console.log("y는 : " + y);
+                    console.log("apply사용후 변경된 : "+this)  //window
+                    console.log("apply사용후 변경된 : " +this.value) //50
+                }
+                bar.apply(obj3,[1,2]);
+                bar.call(obj2,10,20);
+            }
+        }
+        obj3.myfun();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

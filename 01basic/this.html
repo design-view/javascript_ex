@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myfun(){
+         
+            console.log(this);
+        }
+       
+        myfun();
+        let myfun2 = function(){
+            console.log(this);
+        }
+        //1.함수 호출 this는 window
+        myfun2();   //this는 window
+        //2.메소드 호출 this 메소드를 호출한 객체 
+        let obj = {
+            name: "green",
+            method1: myfun2
+        }
+        obj.method1();   // obj
+        //let es6추가 변수선언 키워드 이전 var 변수선언 
+        var ga="그린컴퓨터";
+        let ga2 = "abc";
+        console.log(ga);
+        console.log(window.ga);
+        console.log(window.ga2);
+        //글로벌 영역에 선언한 함수는 전역객체의 프로퍼티로 접근할수 있는
+        //전역변수의 메소드이다. 
+        window.myfun();
+        //변수는 스코프(유효범위)
+        function myfun3(){
+            var var1 = 10;
+            let let1 = 10;
+        }
+        for(let i=0; i<10; i++){
+            var var2 = 10;
+            let let2 = 20;
+        }
+        console.log("var는 함수 스코프이다!!!" + var2);
+        console.log("var는 함수 스코프이다" + var1);
+        console.log("let는 블럭 스코프이다!!!" + let1);
+        console.log("let는 블럭 스코프이다" + let2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
