@@ -26,15 +26,19 @@
             priceNumber = Number(this.value);
             sum();
         })
+        //change이벤트가 발생하면 sum()함수 호출 
         numselect.addEventListener("change",function(){
            sum();
         })
         function sum(){
+            //NaN이 아니면 
             if(!isNaN(priceNumber)){
                 let total = priceNumber * numselect.value;
                 totalinput.value = total; 
+            //NaN이면 
             }else {
-                price.value = "";
+                price.value = "";   //가격입력인풋 ""
+                totalinput.value = "";  //전체가격인풋 ""
             }
         }
     </script>
