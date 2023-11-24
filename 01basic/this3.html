@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>클릭</button>
+    <script>
+        let btn = document.querySelector("button");
+        function myfun(){
+            console.log("호출됨");
+            btn.addEventListener("click",function(){
+                console.log(this);
+            })
+        }
+        myfun();
+        //내부함수의 this ---> window
+        function myfun2(){
+            function innerfun(){
+                console.log("함수의 내부함수에서 this : " + this);
+            }
+            innerfun();
+        }
+        myfun2();
+        let arr = [1,2,3,4,5];
+        function myfun3(){
+            setTimeout(function(){
+                console.log("함수안 setTimeout의 콜백함수의 this : " + this);
+            },2000);
+            arr.map(function(){
+                console.log("함수안 map의 콜백함수의 this: " + this);
+            })
+        }
+        myfun3();
+        let obj = {
+            objfun: function(){
+                arr.map((n)=>{
+                    console.log("메소드안의 내부콜백함수의 this" + this);
+                })
+            },
+            objarrowfun: () => {
+                console.log("메소드로 쓰인 화살표함수의 this" + this);
+            }
+        }
+        obj.objfun();
+        obj.objarrowfun();
+        
+        function Dog(name){
+            this.name = name;
+        }
+        Dog.prototype.snackslist = function(arr){
+            return arr.map((a)=>{
+                return this.name + a;
+            })
+        }
+        let dog1 = new Dog("구름");
+        console.log(dog1.snackslist(["소고기 쳐키","황태","치즈스낵"]));
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userName" name="userName" />
+    <p>
+        전화번호 <input type="text" id="phone1"/>
+        -<input type="text" id="phone2"/>
+        -<input type="text" id="phone3"/>
+    </p>
+    <script>
+        let input = document.querySelector("#userName");
+        let input2 = document.querySelector("#phone2");
+        let input3 = document.querySelector("#phone3")
+        input.addEventListener("input",function(){
+            console.log(input.value);
+        })
+        input2.addEventListener("input",function(){
+            //입력값의 길이가 4이고 문자가 아닐때
+            //isNaN() ---> NaN이냐? NaN이면 true 아니면 false
+            //!isNan()  --> NaN이 아니냐? NaN이 아니면 true 맞으면 false
+            if(this.value.length == 4 && !isNaN(Number(this.value))){
+                input3.focus();
+            }
+        })
+    </script>
+</body>
+</html>

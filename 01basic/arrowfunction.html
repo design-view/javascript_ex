@@ -23,9 +23,9 @@
                 console.log(this);
                 return this.x;
             }
-            
+            let obj5 = { name: "aa", x: 20};
             let arrow = () => this.x;
-            console.log("일반익명함수 : " +normal.call({x:100}));
+            console.log("일반익명함수 : " +normal.call(obj5));
             console.log("화살표함수 : " + arrow.call({x:10}));
         })
        

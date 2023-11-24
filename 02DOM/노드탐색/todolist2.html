@@ -80,19 +80,17 @@
         function liremove(){
             let removes = document.querySelectorAll(".remove");
             let toggles = document.querySelectorAll(".toggle");
-            toggles.forEach(function(to,index){
-                to.addEventListener("click",function(e){
-                    e.preventDefault();
-                    if(this.parentElement.classList.contains("on")){
-                        this.parentElement.classList.remove("on");
-                        console.log("Aaaa");
-                    }else {
-                        this.parentElement.classList.add("on");
-                    }
-                    
-                    
+            
+            toggles[toggles.length-1].addEventListener("click",function(e){
+                this.parentElement.classList.toggle("on");
+                    // if(this.parentElement.classList.contains("on")){
+                    //     this.parentElement.classList.remove("on");
+                        
+                    // }else {
+                    //     this.parentElement.classList.add("on");
+                    // }
                 })
-            })
+        
             removes.forEach(re=>{
                 re.addEventListener("click",function(){
                     this.parentElement.remove();

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myfun(number,x){
+            console.log(arguments);
+            console.log(this);
+            return number * number;
+        }
+        myfun(2,10);
+        //arguments 프로퍼티
+        //arguments 객체는 함수 호출 시 전달된 인수(argument)들의 정보를 담고 있는 순회가능한(iterable) 유사 배열 객체(array-like object)이며 함수 내부에서 지역변수처럼 사용된다. 
+        //즉, 함수 외부에서는 사용할 수 없다.
+        function multiply(x,y){
+            console.log(arguments);
+            return x * y;
+        }
+        multiply();
+        multiply(1);
+        multiply(1,2);
+        multiply(1,2,3);
+
+        function sum(){
+            let res = 0;
+            for(let i=0; i<arguments.length; i++){
+                res += arguments[i];
+            }
+            return res;
+        }
+        console.log(sum());
+        console.log(sum(1,2));
+        console.log(sum(1,2,3));
+    </script>
+</body>
+</html>
