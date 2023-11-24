@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myForm">
+        <p>아이디 <input type="text" name="userId" id="userId"/></p>
+        <p>비밀번호 <input type="text" name="userPass" id="userPass"/></p>
+        <p><button type="submit">전송</button></p>
+    </form>
+    <script>
+        let form = document.forms.myForm;
+        let userId = form.userId;
+        //폼에 기본이벤트 제거 
+        form.addEventListener("submit",function(e){
+            e.preventDefault();
+        })
+    </script>
+</body>
+</html>

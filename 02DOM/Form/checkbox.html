@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>좋아하는 과일 선택하기</p>
+    <p>포도<input type="checkbox" class="fruit" value="포도"/></p>
+    <p>딸기<input type="checkbox" class="fruit" value="딸기"/></p>
+    <p>키위<input type="checkbox" class="fruit" value="키위"/></p>
+    <p>사과<input type="checkbox" class="fruit" value="사과"/></p>
+    <p><button id="btn">결과보기</button></p>
+    <p id="result"></p>
+    <script>
+        let btn = document.querySelector("button");
+        btn.addEventListener("click",function(){
+            let fruitsInput = document.querySelectorAll(".fruit");
+            let str = "";
+            fruitsInput.forEach(input=>{
+                str = input.checked ? str + input.value : str;
+            })
+            document.querySelector("#result").innerHTML = str;
+        })
+    </script>
+</body>
+</html>
