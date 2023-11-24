@@ -14,10 +14,34 @@
     <script>
         let form = document.forms.myForm;
         let userId = form.userId;
+        let userPass = form.userPass;
         //폼에 기본이벤트 제거 
         form.addEventListener("submit",function(e){
             e.preventDefault();
         })
+        function formCheck(){
+            //아이디 입력이 빈칸이아니고 글자수가 5개 이상인지체크
+            if(userId.value.length >= 5){
+                //비밀번호 체크 
+                //글자수가 8개이상 숫자를 포함하고 있는지 체크 
+                if(userPass.value.length >= 8){
+                    //비밀번호 글자 안에 숫자가 있는지 체크
+                    let strarr = userPass.value.split("");
+                    let isNum = false;  //숫자가 있는지 체크 변수 있으면 true할당 
+                    strarr.forEach(ch=>{
+                        if(!isNaN(Number(ch))) isNum = true;
+                        return;
+                    })
+                    if(isNum) {
+                        console.log("숫자를 포함하고 있습니다.");
+                    }else {
+                        console.log("숫자를 포함하고 있지않습니다.");
+                    }
+                }
+            }else {
+                console.log("아이디 글자수 부족")
+            }
+        }
     </script>
 </body>
 </html>
