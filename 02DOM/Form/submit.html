@@ -15,9 +15,13 @@
         let form = document.forms.myForm;
         let userId = form.userId;
         let userPass = form.userPass;
+        let btn = document.querySelector("button");
         //폼에 기본이벤트 제거 
         form.addEventListener("submit",function(e){
             e.preventDefault();
+        })
+        btn.addEventListener("click",function(){
+            formCheck();
         })
         function formCheck(){
             //아이디 입력이 빈칸이아니고 글자수가 5개 이상인지체크
@@ -34,12 +38,15 @@
                     })
                     if(isNum) {
                         console.log("숫자를 포함하고 있습니다.");
+                        form.submit();
                     }else {
                         console.log("숫자를 포함하고 있지않습니다.");
                     }
+                }else{
+                    console.log("비밀번호 글자수 부족");
                 }
             }else {
-                console.log("아이디 글자수 부족")
+                console.log("아이디 글자수 부족");
             }
         }
     </script>

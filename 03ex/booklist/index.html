@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul class="items"></ul>
+    </div>
+    <script>
+        //json파일을 동적으로 받아오는 함수
+        function loadItems(){
+            //fetch API사용
+            return fetch('data.json')
+            .then(response=> response.json())
+            .then(json=>json.items)
+        }
+
+        //받아온 json데이터를 html요소로 변환(li)
+        //ul에 추가하기
+        function displayItems(items){
+            let container = document.querySelector("ul");
+        //     {
+        //     "title":"javascript기초",
+        //     "price": 38000,
+        //     "year" : 2023
+        //  }
+        //["<li>javascript기초<span>가격 : 38000 
+        //출판연도 : 2023</span></li>","
+        //<li>javascript기초<span>가격 : 38000 
+        //출판연도 : 2023</span></li>"]"
+           let listr = items.map(item=>{
+                return `
+                <li>${item.title}<span>가격 : ${item.price} 
+                    출판연도 : ${item.year}</span></li>
+                `
+            }).join("");
+            container.innerHTML = listr;
+        }
+        loadItems().then(items => {
+            console.log(itmes);
+            displayItems(items);
+        })
+    </script>
+</body>
+</html>

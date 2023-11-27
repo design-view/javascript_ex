@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //프로미스 프로듀서
+        const promise = new Promise((resolve, reject)=>{
+            console.log("수행중.....");
+            setTimeout(()=>{
+                reject("실패");
+            },2000)
+        });
+        console.log(promise);
+        //프로미스 컨슈머
+        promise.then(value=>{
+            console.log("then실행");
+            console.log(value);
+            console.log(promise);
+        })
+        .catch(error=>{
+            console.log("catch실행");
+            console.log(promise);
+            console.log(error);
+        })
+        .finally(()=>{
+            console.log("프로미스가 성공을보내든 실패를 보내든 마지막에실행")
+        })
+        let promise2 = fetch("https://jsonplaceholder.typicode.com/users");
+        promise2.then(response=>{
+            console.log(response);
+            //자바스크립트에 사용가능한 데이터타입으로 변환요청 
+            return response.json();
+        })
+        .then(data=>console.log(data[0]));
+    </script>
+</body>
+</html>
