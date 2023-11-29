@@ -1,0 +1,55 @@
+{
+    "items": [
+        {
+            "type":"tshirt",
+            "gender":"남성",
+            "size": "large",
+            "color":"pink",
+            "images":"imgs/pink_t.png"
+        },
+        {
+            "type":"skirt",
+            "gender":"여성",
+            "size": "small",
+            "color":"yellow",
+            "images":"imgs/yellow_s.png"
+        },
+        {"type":"pants",
+                "gender":"남성",
+                "size": "large",
+                "color": "blue",
+                "images":"imgs/blue_p.png"
+        },
+        {
+            "type":"tshirt",
+            "gender":"여성",
+            "size": "middle",
+            "color": "yellow",
+            "images":"imgs/yellow_t.png"
+        },
+        {
+            "type":"skirt",
+            "gender":"여성",
+            "size": "small",
+            "color": "pink",
+            "images":"imgs/pink_t.png"
+        }, 
+        {
+            "type":"tshirt",
+            "gender":"남성",
+            "size": "large",
+            "color": "pink",
+            "images":"imgs/pink_t.png"
+        }
+        , 
+        {
+            "type":"tshirt",
+            "gender":"남성",
+            "size": "large",
+            "color": "pink",
+            "images":"imgs/pink_t.png"
+        }
+
+
+    ]
+}

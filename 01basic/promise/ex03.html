@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //  var Promise: PromiseConstructor
+       //  new <any>(executor: (resolve: (value: any) => void, 
+       //  reject: (reason?: any) => void) => void) => Promise<any>
+       
+        function promiseFun1(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    resolve("프로미스1 성공")
+                },2000)
+            }); 
+        }
+        function promiseFun2(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    resolve("프로미스2 성공")
+                },2000)
+            }); 
+        }
+        // promiseFun1().then(function(result){
+        //     console.log("result",result);
+        //     promiseFun2().then(function(result2){
+        //         console.log("result2", result2)
+        //     })
+        // })
+        promiseFun1()
+        .then(result=>promiseFun2())
+        .then(result2=>console.log("result2",result2));
+        console.log(100);
+    </script>
+</body>
+</html>

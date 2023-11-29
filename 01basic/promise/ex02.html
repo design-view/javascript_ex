@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //fetch()실행시 
+        //Promise객체리턴   ----> then() catch()
+        //요청이 완료될때 기다렸다가 성공하면 resolve()호출
+        //실패하면 reject()호출  
+        //fetch사용하는 클라이언트에서 resolve()함수는 then()으로 처리
+        //reject()함수는 catch()로 처리 
+        //resolve(rosponse객체)
+       
+    //nested promise구조
+    let arr;
+       fetch("https://jsonplaceholder.typicode.com/users")
+       .then(function(response){
+              //브라우져에게 응답 결과가 json파일인걸 알려줌
+                           //json파일을 자바스크립트형 데이터 타입으로 변환해줌 
+            console.log("response", response);
+            // response.json().then(function(data){
+            //     console.log('data',data);
+            // })
+            return response.json()})
+        .then(function(data){
+           arr=data;
+           console.log(arr);
+        });
+        fetch("https://jsonplaceholder.typicode.com/users").catch(function(error){
+            console.log("error", error);
+        })
+        function showdisplay(data){
+            let id1 = data.find(d=>d.id == 1);
+            console.log(id1.name);
+        }
+       
+    </script>
+</body>
+</html>
